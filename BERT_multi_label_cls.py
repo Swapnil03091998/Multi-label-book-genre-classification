@@ -121,7 +121,7 @@ x = tf.keras.layers.Softmax(name="probabilities")(x)
 model = tf.keras.Model(i, x)
 
 ##Define all metrics and params and train the model
-n_epochs = 10
+n_epochs = 20
 
 
 earlystop_callback = tf.keras.callbacks.EarlyStopping(monitor = "val_loss", 
