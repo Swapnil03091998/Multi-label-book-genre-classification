@@ -52,6 +52,8 @@ print(statistics.median(counts))
 top_genres = {k:v for k, v in genres_count.items() if v>=95}
 print(len(top_genres)) #gives 100
 
+top_genres = list(genres_count_sorted.keys())[:10] #taking top 10 genres for avoiding sparsity problem during model training
+
 ##Plotting frequencies of top 10 genres
 
 import matplotlib.pyplot as plt
@@ -139,7 +141,7 @@ model_fit = model.fit(x_train,
                       validation_data = (x_test, y_test),
                       callbacks = [earlystop_callback])
 
-#The last F1 val score was around 0.16
+#The F1 val score was around 0.40
 
 def predict_genres(test_sample, k):
     '''function to predict genres for a given book description'''
